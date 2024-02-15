@@ -1,0 +1,213 @@
+
+/* ////////////////////// */
+/* //// Common style //// */
+/* ////////////////////// */
+
+/* Resetting default margin and padding for various elements */
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+p {
+	margin: 0;
+	padding: 0;
+}
+
+/* Color variables defined using CSS custom properties */
+:root {
+	--primary: #e6b01c;
+	--black: #000000;
+	--white: #ffffff;
+	--color-1: #757575;
+	--color-2: #cccccc;
+	--color-3: #2e4413;
+	--color-4: #1c1c1c;
+	--color-5: #efebe7;
+	--color-6: #e3d6c8;
+}
+
+/* Styling for the entire HTML document */
+html,
+body {
+	overflow-x: hidden !important;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Styling for the body, setting background color and font family */
+body {
+	background-color: var(--white);
+	font-family: "Poppins", sans-serif;
+}
+
+/* Styling for text selection */
+::selection {
+	background-color: var(--color-1);
+	color: var(--color-2);
+}
+
+/* Container styles with max-width and centered margin */
+.container {
+	max-width: auto;
+	margin: auto;
+}
+
+/* Common transition for links, buttons, and images */
+a,
+button,
+img {
+	transition: all 0.5s;
+}
+
+/* Background color utility classes */
+.white-bg {
+	background-color: var(--white);
+}
+
+.black-bg {
+	background-color: var(--black);
+}
+
+/* Heading 2 title styling */
+h2.title {
+	padding: 10px;
+	font-size: 2.6rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1;
+	text-transform: uppercase;
+	position: absolute;
+	top: 2rem;
+	width: 100%;
+	pointer-events: none;
+}
+
+/* Button styling with margin, padding, font size, color, and transition */
+.common-btn {
+	margin: 0;
+	padding: 1rem 1rem;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	color: var(--white);
+	background-color: var(--primary);
+	text-transform: uppercase;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	position: relative;
+	z-index: 1;
+	transition: all 0.15s;
+}
+
+/* Button hover effect with a pseudo-element overlay */
+.common-btn::before {
+	left: 6px;
+	top: 6px;
+	position: absolute;
+	content: "";
+	border: 1px solid var(--primary);
+	height: 100%;
+	width: 100%;
+	transition: all 0.15s;
+	z-index: -1;
+}
+
+/* Button hover effect - adjusting pseudo-element position */
+.common-btn:hover::before {
+	top: 0;
+	left: 0;
+}
+
+/* Button hover and focus styling */
+.common-btn:hover,
+.common-btn:focus {
+	color: var(--white);
+}
+
+/* Button focus styling with box-shadow and outline */
+.common-btn:focus {
+	box-shadow: none;
+	outline: none;
+}
+
+
+/* Dark theme styling for heading 2 title and paragraph */
+.theme-dark h2.title {
+	color: var(--color-1);
+}
+
+.theme-dark p {
+	color: var(--color-2);
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+	/* Heading 2 title styling */
+	h2.title {
+		font-size: 5rem; 
+		line-height: 1.1;
+		margin-top: 2rem;
+	}
+
+	/* Paragraph styling */
+	p {
+		margin: 0 1.5rem 1.5rem 0;
+		font-size: 18px; 
+		line-height: 1.8;
+	}
+
+	/* Button styling */
+	.common-btn {
+		font-size: 18px;
+		padding: 10px 10px;
+	}
+}
+
+
+
+/* /////////////////////////// */
+/* //// Button scroll up ///// */
+/* /////////////////////////// */
+
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 6%;
+	right: 6%; 
+	z-index: 99;
+	font-size: 3rem; 
+	border: none;
+	outline: none;
+	color: var(--primary);
+	cursor: pointer;
+	padding: 1vw;
+	border-radius: 6px; 
+}
+
+#myBtn:hover {
+	color: var(--primary);
+
+}
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 768px) {
+
+	#myBtn {
+		font-size: 2.5rem; 
+		bottom: 6%; 
+		right: 6%; 
+		padding: 1vw;
+	}
+}
+
+
+
+
+
+

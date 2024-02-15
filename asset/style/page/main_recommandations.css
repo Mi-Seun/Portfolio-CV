@@ -1,0 +1,77 @@
+/* ////////////////////////////////// */
+/* ///////// recommendations //////// */
+/* ////////////////////////////////// */
+
+.recommendations-section {
+    padding: 16rem 0 2rem 0;
+}
+
+.recommendations-section .content {
+    border: 2px solid var(--color-4);
+    padding: 40px 10px 40px 10px;
+    width: 100%;
+    margin: 1rem 1rem 2rem 0;
+}
+
+.recommendations-section .row {
+    align-items: flex-end;
+}
+
+.recommendations-section .reverse-row {
+    align-items: flex-start;
+}
+
+.recommendations-section .content h3 {
+    font-weight: 600;
+    margin: 0px 0px 20px;
+    color: var(--black);
+    line-height: 30px;
+}
+
+.recommendations-section .content p {
+    font-size: 1.25rem;
+    line-height: 26px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-1);
+    padding-bottom: 2rem;
+}
+
+
+
+/* Responsive Styles for Mobile Devices */
+@media only screen and (max-width: 768px) {
+
+    .recommendations-section {
+        padding: 7rem 0 0 0;
+    }
+
+    .recommendations-section h2{
+        font-size: 1.7rem !important;
+        letter-spacing: -2px;
+    }
+
+    .recommendations-section .content h3 {
+        font-size: 1.5rem;
+        line-height: 28px;
+
+    }
+
+    .recommendations-section .content p {
+        font-size: 1rem; 
+        line-height: 24px; 
+    }
+
+}
+
+
+@media only screen and (max-width: 1024px) {
+
+    .recommendations-section h2{
+        font-size: 5rem;
+        letter-spacing: -2px;
+    }
+
+}
+
+

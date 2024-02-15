@@ -1,0 +1,150 @@
+/* Navigation bar styling */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+}
+
+/* Hamburger menu button styling */
+.menu-btn {
+    display: none;
+    padding: 10px;
+    background: none;
+    border: none;
+}
+
+/* Styling for the menu icon */
+.menu-btn .menu-icon {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Checkbox input styling in the menu button */
+.menu-btn input[type="checkbox"] {
+    display: none;
+}
+
+/* Logo styling */
+.logo img {
+    width: auto;
+    height: auto;
+    max-width: 40%;
+    max-height: 20%;
+}
+
+/* Vertical metro line styling */
+.ligne-metro {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    border-top: 10px solid red;
+    padding: 0;
+    writing-mode: vertical-lr;
+}
+
+/* Styling for each metro station on the line */
+.ligne-metro li {
+    display: block;
+    transform: rotate(235deg) translate(0, 35px);
+    transform-origin: left center;
+    margin: 0 10px 0 75px;
+    margin-top: 10px;
+    text-align: right;
+    font-size: 1.2rem;
+    transition: color 0.3s, font-size 0.3s;
+}
+
+/* Styling for metro station links */
+.ligne-metro li a {
+    color: black;
+}
+
+/* Hover and active styles for metro stations */
+.ligne-metro li:hover,
+.ligne-metro li:active {
+    color: #808080;
+    font-size: 1.5rem;
+}
+
+
+
+/* Small screens */
+@media screen and (max-width: 768px) {
+    .logo img {
+        max-width: 30%;
+        max-height: 20%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    #menu.menu-open {
+        display: block;
+    }
+
+    .ligne-metro {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #f8f8f8;
+        width: 100%;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .menu-open .ligne-metro li {
+        display: block;
+        margin: 0;
+        padding: 10px;
+        font-size: 1.2rem;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .ligne-metro li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform:none;
+        margin: 0;
+        margin-top: 10px;
+        text-align: left;
+        transform: none !important;
+        font-size: 1.2rem;
+        transition: color 0.3s, font-size 0.3s;
+    }
+    
+    #menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        background-color: #fff;
+        padding: 7px;
+        list-style: none;
+    }
+
+    .ligne-metro li:hover,
+    .ligne-metro li:active {
+        color: #808080;
+        font-size: 0.9rem;
+    }
+
+    .ligne-metro {
+        writing-mode: horizontal-tb;
+    }
+
+    .ligne-metro li {
+        display: block;
+        transform-origin: left center;
+        margin: 20px;
+        margin-top: 10px;
+        text-align: right;
+        font-size: 1.2rem;
+        right: 20px;
+    }
+}
+

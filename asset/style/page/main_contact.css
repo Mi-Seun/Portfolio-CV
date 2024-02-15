@@ -1,0 +1,133 @@
+/* /////////////////////////// */
+/* /////// Contact /////////// */
+/* /////////////////////////// */
+
+.contact-me {
+  padding: 16rem 0 2rem; 
+}
+
+.contact-me h4 {
+  margin: 0 0 3rem;
+  padding-top: 1rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-1);
+}
+
+.contact-me .nav-contact {
+  list-style-type: none; 
+  padding: 0; 
+}
+
+.contact-me .nav-contact .nav-contact-item {
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.contact-me .nav-contact .nav-contact-item .nav-contact-link {
+  font-size: 1.2rem;
+  line-height: 3rem; 
+  font-style: normal;
+  font-weight: 400;
+  color: #333333;
+  padding: 0;
+}
+
+.contact-info {
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  border: 2px solid var(--white);
+}
+
+.contact-info h3 {
+  margin: 0 0 2rem; 
+  font-size: 2rem;
+  line-height: 2.25rem; 
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.contact-info p {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.625rem; 
+  font-weight: 400;
+}
+
+
+.outil-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  border: 2px solid var(--color-6);
+}
+
+.outil-info {
+  margin: 2rem;
+  font-size: 2rem;
+  line-height: 2.25rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.outil-info p {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: none;
+}
+
+.title-outil {
+  font-size: 1.5rem;
+}
+
+.texte-outil {
+  text-decoration: none;
+  color: #333333;
+}
+
+/* Responsive Styles for Mobile Devices */
+@media only screen and (max-width: 768px) {
+
+  .contact-me {
+    padding: 7rem 0 2rem 0;
+    /* padding-bottom: 2rem !important; */
+  }
+
+  .contact-me h2{
+    font-size: 2.3rem;
+    /* margin-bottom: 0 !important;*/
+    /* padding-bottom: 0 !important;  */
+  }
+
+  .title-hobby {
+    padding-top: 0 !important;
+  }
+
+  .outil-box {
+    border: 2px solid var(--white);
+  }
+
+  .outil-info {
+    margin: 1rem;
+  }
+}
+
