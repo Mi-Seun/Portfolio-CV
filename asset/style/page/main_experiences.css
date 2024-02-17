@@ -24,12 +24,6 @@
     width: 100%;
 }
 
-.leaflet-popup-content {
-    padding: 1rem;
-    background-color: var(--primary);
-    color: var(--white);
-}
-
 .experience-box {
     color: #fff;
     height: auto; 
@@ -79,7 +73,7 @@
         right: 1rem !important;
     }
 
-    .leaflet-marker-icon {
+    /* .leaflet-marker-icon {
         width: 34px !important;
         height: 52px !important;
     }
@@ -88,7 +82,7 @@
         font-size: 0.7rem !important;
         max-width: 150px;
         overflow-y: auto;
-    }
+    } */
 }
 
 @media only screen and (max-width: 768px) {

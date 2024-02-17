@@ -1,0 +1,10 @@
+{
+	"type": "FeatureCollection", 
+	"features": [
+		{
+			"type": "Feature", 
+			"geometry": {"type": "Point", "coordinates": [4.831634, 45.765173]}, 
+			"properties": {"origine": "local", "similarites_differences_l": "le local évalué^", "source": "", "AJDI_observatoire": "", "AJDI_detail": "", "rg": "", "numero": "", "adresse": "angle quai Pêcherie – rue Longue", "activite": "restauration^", "date_jugement": "30/12/1899", "date_d_effet": "1/9/2022", "loyer_annuel_HTHC_date_effet": "30000", "loyer_HTHC_eur-m2p-an": "0", "surface_brute_m2": "NC", "surface_ponderee_m2": "0", "coeff_actu_sept2022_ILC": "1", "loyer_eur-m2p-an_actu_sept2022_ILC": "0", "simdif": "n", "cuisson_possible_(gaine)": "oui^", "destination_similaire": "", "visibilite": "grand espace ouvert devant, dégagé, pas masqué par stationnements, grande terrasse, angle^", "angle": "oui^", "terrasse": "76 pl.^", "avantages_quais_et_effet_quai": "oui^", "quartier": "quais Pêcherie-St Antoine^", "vue": "Fourvière^", "etat": "très bon^", "mis_aux_normes(WC_PMR)": "oui^", "elec_haute_puissance": "oui^", "local_en_rdc": "oui", "deplafonnement": "", "TF": "preneur"}
+		}
+	]
+}

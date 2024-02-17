@@ -1,0 +1,80 @@
+{
+	"type": "FeatureCollection", 
+	"features": [
+		{
+			"type": "Feature", 
+			"geometry": {
+                "type": "Point", 
+                "coordinates": [4.8331, 45.7381]
+            }, 
+			"properties": {
+                "nom": "Ice Developement",
+                "date": "2023",
+                "lieu": "Lyon",
+                "type_id": "developpeur",
+                "type_nom": "Développeur Web",
+                "zone": "Europe",
+                "activites": [
+                    "Création de sites web<br>- WordPress, php, JavaScript, mysql, CSS"
+                ]
+            }
+		},
+		{
+			"type": "Feature", 
+			"geometry": {
+                "type": "Point", 
+                "coordinates": [4.8292, 45.7645]
+            }, 
+			"properties": {
+                "nom": "Minanée",
+                "date": "2007-2013",
+                "lieu": "Lyon",
+                "type_id": "management",
+                "type_nom": "Management",
+                "zone": "Europe",
+                "activites": [
+                    "Gérante de restaurant",
+                    "Création de supports de communication papier & site Web, photographie"
+                ]
+            }
+		},
+		{
+			"type": "Feature", 
+			"geometry": {
+                "type": "Point", 
+                "coordinates": [4.8511, 45.7717]
+            }, 
+			"properties": {
+                "nom": "Sushido",
+                "date": "2002-2007",
+                "lieu": "Lyon",
+                "type_id": "management",
+                "type_nom": "Management",
+                "zone": "Europe",
+                "activites": [
+                    "Manager de restaurant"
+                ]
+            }
+		},
+		{
+			"type": "Feature", 
+			"geometry": {
+                "type": "Point", 
+                "coordinates": [22.9375, -30.5595]
+            }, 
+			"properties": {
+                "nom": "ONG de bénévolat caritatif",
+                "date": "2002-2007",
+                "lieu": "Afrique du Sud",
+                "type_id": "ong",
+                "type_nom": "Humanitaire",
+                "zone": "Afrique",
+                "activites": [
+                    "Chef d'équipe",
+                    "Aide sociale",
+                    "Cuisinière"
+                ]
+            }
+		}
+	]
+}
