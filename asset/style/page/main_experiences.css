@@ -46,11 +46,11 @@
     .activites {
         color: var(--color-1);
     }
-    .leaflet-control-layers-selector {
-        background-color: #e6b01c !important; /* Fond jaune */
-        color: white !important; /* Texte blanc */
+    .leaflet-control-layers-selector:checked {
+        background-color: #e6b01c !important; 
+        color: white !important;
     }
-    
+        
 
 
     .experience-box {
@@ -82,9 +82,9 @@
     
     .experience-box p {
         margin:  2rem;
-        margin-top: 10px !important;
+        margin-top: 10px;
         padding: 10px;
-        padding-top: 0 !important;
+        padding-top: 0 ;
         font-size: 1rem;
         font-style: italic;
         font-weight: 400;

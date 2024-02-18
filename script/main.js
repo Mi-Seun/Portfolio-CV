@@ -201,13 +201,20 @@ window.onload = async function funLoad() {
         '<span class="coucheLeafLet">Océanie</span>': zones['Oceanie'],
     };
 
-// Création des contrôles de couches pour chaque type de couche
-let baseLayersControl = L.control.layers(baselayers, null, {collapsed: false, position: 'bottomright'});
-let overlayLayersControl = L.control.layers(null, overlayMaps, {collapsed: false, position: 'topright'});
+    // Création des contrôles de couches pour chaque type de couche
+    let baseLayersControl = L.control.layers(baselayers, null, {collapsed: false, position: 'bottomright'});
+    let overlayLayersControl = L.control.layers(null, overlayMaps, {collapsed: false, position: 'topright'});
 
-// Ajout des contrôles de couches à la carte
-baseLayersControl.addTo(map);
-overlayLayersControl.addTo(map);
+    // Ajout des contrôles de couches à la carte
+    baseLayersControl.addTo(map);
+    overlayLayersControl.addTo(map);
+
+    // Ajouter des styles CSS uniquement aux cases à cocher
+    document.querySelectorAll('.leaflet-control-layers-selector').forEach(checkbox => {
+        checkbox.style.backgroundColor = '#e6b01c'; 
+        checkbox.style.color = 'white'; 
+    });
+
 
     // Popup autonome pour afficher "Voir mes expériences"
     let standalonePopup = L.popup()

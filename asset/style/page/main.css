@@ -143,6 +143,7 @@ h2.title {
 
 .theme-dark p {
 	color: var(--color-2);
+	font-size: 1rem;
 }
 
 
