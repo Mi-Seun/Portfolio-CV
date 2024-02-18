@@ -102,13 +102,13 @@
 @media only screen and (max-width: 767px) {
 
     .presentation-box {
-        padding: 20px 0 0;
+        padding: 2rem 0 0;
     }
 
     .presentation-text {
         position: relative;
         margin: 0;
-        padding: 20px;
+        padding: 2rem;
     }
 
     .presentation-text h1 {

@@ -1,104 +1,136 @@
-/* /////////////////////////// */
-/* /////// Experiences /////// */
-/* /////////////////////////// */
-
-/* Styles communs pour les appareils de grande taille */
-
-#experiences-section {
-    background-color: var(--black); 
-    color: #fff; 
-    padding: 16rem 0 0 0; 
-    padding-bottom: 0 !important;
-
-}
-
-.container {
-    display: flex;
-    justify-content: space-around;
-    align-items: stretch;
-    flex-wrap: wrap;
-}
-
-#map {
-    height: 600px;
-    width: 100%;
-}
-
-.experience-box {
-    color: #fff;
-    height: auto; 
-    z-index: 1;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0 !important;
-}
-
-.experience-box h3 {
-    margin: 20px;
-    padding: 10px;
-    color: var(--white);
-    border: 2px solid var(--primary);
-    background-color: var(--primary);
-    text-align: center;
-}
-
-.experience-box h5 {
-    margin:  20px;
-    margin-bottom: 0 !important;
-    padding: 10px;
-    padding-bottom: 0 !important;
-}
-
-.experience-box p {
-    margin:  2rem;
-    margin-top: 10px !important;
-    padding: 10px;
-    padding-top: 0 !important;
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 2rem;
-}
-
-/* Styles pour les appareils de petite taille */
-@media screen and (max-width: 767px) {
+    /* /////////////////////////// */
+    /* /////// Experiences /////// */
+    /* /////////////////////////// */
+    
+    /* Styles communs pour les appareils de grande taille */
+    
     #experiences-section {
-        padding: 7rem 0 0 0; 
+        background-color: var(--black); 
+        color: #fff; 
+        padding: 16rem 0 0 0; 
+        padding-bottom: 0 !important;
+    
     }
+    
+    .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+    
 
+    /* section de Map */
     #map {
         height: 600px;
-        right: 1rem !important;
+        width: 100%;
     }
-
-    /* .leaflet-marker-icon {
-        width: 34px !important;
-        height: 52px !important;
+    .leaflet-popup-content-wrapper {
+        background-color: var(--primary);
+        color: #fff;
     }
-
-    .leaflet-popup-content {
-        font-size: 0.7rem !important;
-        max-width: 150px;
-        overflow-y: auto;
-    } */
-}
-
-@media only screen and (max-width: 768px) {
-
-    .experiences-section {
-        padding: 8rem 0;
-        padding-bottom: 1rem !important;
+    .leaflet-popup .popupleaflet {
+        background-color: var(--primary);
+        color: #fff;
     }
-
-    .experiences-section h2{
-        font-size: 2.3rem;
+    .popupleaflet  .leaflet-popup-tip {
+        background-color: var(--primary);
     }
+    .leaflet-popup-content-wrapper .leaflet-popup-content .popup-content .bulle_type_nom {
+        color: rgb(0, 0, 0) !important;
+        font-weight: 400;
+    }
+    .leaflet-popup-tip {
+        background-color: var(--primary);
+    }
+    .activites {
+        color: var(--color-1);
+    }
+    .leaflet-control-layers-selector {
+        background-color: #e6b01c !important; /* Fond jaune */
+        color: white !important; /* Texte blanc */
+    }
+    
+
 
     .experience-box {
-        margin-bottom: 2rem;
+        color: #fff;
+        height: auto; 
+        z-index: 1;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0 !important;
     }
-}
-
-
+    
+    .experience-box h3 {
+        margin: 20px;
+        padding: 10px;
+        color: var(--white);
+        border: 2px solid var(--primary);
+        background-color: var(--primary);
+        text-align: center;
+    }
+    
+    .experience-box h5 {
+        margin:  20px;
+        margin-bottom: 0 !important;
+        padding: 10px;
+        padding-bottom: 0 !important;
+    }
+    
+    .experience-box p {
+        margin:  2rem;
+        margin-top: 10px !important;
+        padding: 10px;
+        padding-top: 0 !important;
+        font-size: 1rem;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 2rem;
+    }
+    
+    /* Styles pour les appareils de petite taille */
+    @media screen and (max-width: 767px) {
+        #experiences-section {
+            padding: 7rem 0 0 0; 
+        }
+    
+        #map {
+            height: 600px;
+            right: 1rem !important;
+        }
+        
+        .leaflet-pane .leaflet-marker-pane {
+        width: 34px !important;
+        height: 52px !important;
+        }
+    
+        .popupleaflet .leaflet-popup-content-wrapper {
+            font-size: 1rem !important;
+            max-width: 240px;
+            overflow-y: auto;
+            background-color: var(--primary);
+        }
+    
+    }
+    
+    @media only screen and (max-width: 768px) {
+    
+        .experiences-section {
+            padding: 8rem 0;
+            padding-bottom: 1rem !important;
+        }
+    
+        .experiences-section h2{
+            font-size: 2.3rem;
+        }
+    
+        .experience-box {
+            margin-bottom: 2rem;
+        }
+    }
+    
+    
+    

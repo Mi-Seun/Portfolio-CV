@@ -75,13 +75,19 @@ window.onload = async function funLoad() {
     });
 
     // Ajout des couches de fond de carte pour Lyon
-    let baselayers = {
+    let fonds = {
         CartoDB: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'),
         OSM: L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png'),
         Esri: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
-        LyonMap: L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png') // Carte de fond de Lyon
+        osmhot: L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'),
     };
-    baselayers.CartoDB.addTo(map); // Utilisation de la carte de fond de Lyon
+    fonds.CartoDB.addTo(map);
+    let baselayers = {
+        '<span class="coucheLeafLetBase">Carto DB</span>': fonds['CartoDB'],
+        '<span class="coucheLeafLetBase">Open Street Map</span>': fonds['OSM'],
+        '<span class="coucheLeafLetBase">Esri</span>': fonds['Esri'],
+        '<span class="coucheLeafLetBase">OSM HOT</span>': fonds['osmhot'],
+    };
 
     // Ajout de l'échelle à la carte
     L.control.scale({maxWidth: 100}).addTo(map);
@@ -90,7 +96,7 @@ window.onload = async function funLoad() {
     function createCustomIcon(iconUrl) {
         return L.icon({
             iconUrl: iconUrl,
-            iconSize: [52, 72], // Taille de l'icône
+            iconSize: [32, 52], // Taille de l'icône
             iconAnchor: [16, 32], // Point d'ancrage de l'icône
             popupAnchor: [0, -32] // Position de la popup par rapport à l'icône
         });
@@ -102,6 +108,224 @@ window.onload = async function funLoad() {
 
     map.on('click', onMapClick);
 
+
+    
+    let icones = {
+        developpeurIcon: createCustomIcon('asset/images/icon/icon_dev.png'),
+        restaurantIcon: createCustomIcon('asset/images/icon/icon_restaurant.png'),
+        ongIcon: createCustomIcon('asset/images/icon/icon_ong.png'),
+        ademistrationIcon: createCustomIcon('asset/images/icon/icon_home.png'),
+        managementIcon: createCustomIcon('asset/images/icon/icon_event.png'),
+        globalIcon: createCustomIcon('asset/images/icon/icon_global.png'),
+        consultingIcon: createCustomIcon('asset/images/icon/icon_consulting.png'),
+        associationIcon: createCustomIcon('asset/images/icon/icon_association.png'),
+        designIcon: createCustomIcon('asset/images/icon/icon_design.png'),
+    }
+
+    let traitementFeature = function (feature, latlng) {
+        let bulle = "";
+        bulle += `<div class="popup-content">`;
+        bulle += `<span class="bulle_type_nom"><br><strong>${feature.properties.type_nom}</span></strong><br>`;
+        bulle += `<span class="bulle_nom"> ${feature.properties.nom}</span>`;
+        bulle += `<span class="bulle_date"> ${feature.properties.date}</span>`;
+        bulle += `<span class="bulle_lieu"> ${feature.properties.lieu}</span>`;
+
+        // Les activités à la popup
+        if (feature.properties.activites && feature.properties.activites.length > 0) {
+            bulle += "<div class='activites'><br><strong>Activités:</strong><ul>";
+            feature.properties.activites.forEach(activite => {
+                bulle += `<li>${activite}</li>`;
+            });
+            bulle += "</ul></div>";
+        }
+
+        bulle += `</div>`;
+
+        let icone = icones[feature.properties.type_id + 'Icon'];
+        let marqueur = L.marker(latlng, { icon: icone }).bindPopup(bulle, {
+            className: "popupleaflet"
+        });
+
+        marqueur.on('click', function() {
+            map.setView(latlng, 13);
+        });
+
+        // marqueur.bindTooltip(``, 
+        //     {
+        //         permanent: false, 
+        //         className: "tooltip", 
+        //         offset: [20, -35], 
+        //         opacity: 0.85
+        //     }
+        // );
+        return marqueur;
+}
+
+
+
+
+
+    responseHttp = await fetch('asset/data/experiences.geojson', 
+    {method: 'GET', headers: {'Accept': 'application/json'}});
+    console.log(responseHttp);
+    let textereponse = await responseHttp.text();
+    console.log(textereponse);
+    experiences = JSON.parse(textereponse);
+    console.log(experiences);
+
+    zones = {
+        'Europe': null,
+        'Afrique': null,
+        'Asie': null,
+        'Oceanie': null,
+    }
+
+    for(zoneNom in zones){
+        let coucheZone = L.geoJSON(experiences, {
+            pointToLayer: function (feature, latlng) {
+                return traitementFeature(feature, latlng);
+            },
+            filter: function (feature) {
+                return feature.properties['zone'] === zoneNom;
+            }
+        });
+        coucheZone.addTo(map);
+        zones[zoneNom] = coucheZone;
+    }
+    console.log(zones);
+
+    let overlayMaps = {
+        '<span class="coucheLeafLet">Europe</span>': zones['Europe'],
+        '<span class="coucheLeafLet">Afrique</span>': zones['Afrique'],
+        '<span class="coucheLeafLet">Asie</span>': zones['Asie'],
+        '<span class="coucheLeafLet">Océanie</span>': zones['Oceanie'],
+    };
+
+// Création des contrôles de couches pour chaque type de couche
+let baseLayersControl = L.control.layers(baselayers, null, {collapsed: false, position: 'bottomright'});
+let overlayLayersControl = L.control.layers(null, overlayMaps, {collapsed: false, position: 'topright'});
+
+// Ajout des contrôles de couches à la carte
+baseLayersControl.addTo(map);
+overlayLayersControl.addTo(map);
+
+    // Popup autonome pour afficher "Voir mes expériences"
+    let standalonePopup = L.popup()
+    .setLatLng([57.891497, 61.171875])
+    .setContent("Cliquez le pionteur")
+    .openOn(map);
+
+
+    
+
+
+// fin dom onload
+}
+
+
+
+
+
+
+/* /////////////////////////////////// */
+/* /////// Part of Motivation //////// */
+/* /////////////////////////////////// */
+
+
+// Handling click events to open PDF documents
+const openPdfBtn1 = document.getElementById('openPdfBtn1');
+const openPdfBtn2 = document.getElementById('openPdfBtn2');
+
+openPdfBtn1.addEventListener('click', function() {
+    // Define the URL of the first PDF document
+    const pdfURL1 = 'asset/images/pdf/recommandation_cogether.pdf';
+    // Open the first PDF document in a new tab/window
+    window.open(pdfURL1, '_blank');
+});
+
+openPdfBtn2.addEventListener('click', function() {
+    // Define the URL of the second PDF document
+    const pdfURL2 = 'asset/images/pdf/recommandation_ jpfa.pdf';
+    // Open the second PDF document in a new tab/window
+    window.open(pdfURL2, '_blank');
+});
+
+
+
+/* /////////////////////////// */
+/* ///// Button scroll up //// */
+/* /////////////////////////// */
+
+
+//Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+
+
+
+
+
+    /*
+    // Création de différentes icônes
+    let developpeurIcon = createCustomIcon('asset/images/icon/icon_dev.png');
+    let restaurantIcon = createCustomIcon('asset/images/icon/icon_restaurant.png');
+    let ongIcon = createCustomIcon('asset/images/icon/icon_ong.png');
+    let managementIcon = createCustomIcon('asset/images/icon/icon_event.png');
+    let globalIcon = createCustomIcon('asset/images/icon/icon_global.png');
+    let consultingIcon = createCustomIcon('asset/images/icon/icon_consulting.png');
+    let associationIcon = createCustomIcon('asset/images/icon/icon_association.png');
+    let designIcon = createCustomIcon('asset/images/icon/icon_design.png');
+
+
+
+    // Fonction pour ajouter des marqueurs à la carte avec des popups
+    function addMarkerToMap(coordinates, icon, popupContent, zoomLevel, markerId) {
+        let marker = L.marker(coordinates, { icon: icon }).addTo(map);
+        marker.bindPopup(popupContent).openPopup();
+        marker.on('click', function () {
+            console.log("Marqueur cliqué");
+            map.setView(coordinates, zoomLevel);
+            console.log("Contenu de la popup : ", popupContent);
+            updatePopUpContentForMarker(markerId);
+        });
+        return marker;
+    }
+
+    // Popup autonome pour afficher "Voir mes expériences"
+    let standalonePopup = L.popup()
+        .setLatLng([57.891497, 61.171875])
+        .setContent("Cliquez le pionteur")
+        .openOn(map);
+
+    // Contrôle de couche pour les éléments de la carte
+    L.control.layers(baselayers, null, { position: 'topright', collapsed: false }).addTo(map);
+    L.control.layers(null, {
+        "Europe": L.layerGroup([marker1, marker2, marker3, marker4, marker5, marker6, markerEurope, markerLondon]),
+        "Afrique": L.layerGroup([markerAfrica]),
+        "Asie": L.layerGroup([markerSeoul]),
+        "Océanie": L.layerGroup([markerOceanie])
+    }, {
+        position: 'bottomright',
+        collapsed: false
+    }).addTo(map);
+    */
 
     /*
     // Création de différentes icônes
@@ -172,144 +396,57 @@ window.onload = async function funLoad() {
     }).addTo(map);
     */
 
-    let icones = {
-        developpeurIcon: createCustomIcon('asset/images/icon/icon_dev.png'),
-        restaurantIcon: createCustomIcon('asset/images/icon/icon_restaurant.png'),
-        ongIcon: createCustomIcon('asset/images/icon/icon_ong.png'),
-        managementIcon: createCustomIcon('asset/images/icon/icon_event.png'),
-        globalIcon: createCustomIcon('asset/images/icon/icon_global.png'),
-        consultingIcon: createCustomIcon('asset/images/icon/icon_consulting.png'),
-        associationIcon: createCustomIcon('asset/images/icon/icon_association.png'),
-        designIcon: createCustomIcon('asset/images/icon/icon_design.png'),
-    }
 
-    let traitementFeature = function (feature, latlng) {
-        let bulle = "";
-        bulle += `<span class="bulle_type_nom">${feature.properties.type_nom}</span>`;
-        bulle += `<span class="bulle_nom">${feature.properties.nom}</span>`;
-        bulle += `<span class="bulle_date">${feature.properties.date}</span>`;
-        
-        let icone = icones[feature.properties.type_id + 'Icon'];
-        let marqueur = L.marker(latlng, { opacity: 0.5, icon: icone }).bindPopup(bulle, {
-            className: "popupleaflet"
-        });
-        marqueur.bindTooltip(`le tooltip`, 
-            {
-                permanent: true, 
-                className: "tooltip", 
-                offset: [20, -35], 
-                opacity: 0.85
-            }
-        );
-        return marqueur;
-}
 
-    responseHttp = await fetch('asset/data/experiences.geojson', 
-    // responseHttp = await fetch('test.txt', 
-    {method: 'GET', headers: {'Accept': 'application/json'}});
-    console.log(responseHttp);
-    let textereponse = await responseHttp.text();
-    console.log(textereponse);
-    experiences = JSON.parse(textereponse);
-    console.log(experiences);
 
-    let coucheEurope = L.geoJSON(experiences, {
-        pointToLayer: function (feature, latlng) {
-            return traitementFeature(feature, latlng);
-        },
-        filter: function (feature) {
-                return feature.properties['zone'] === 'Europe';
-        }
-    });
-    coucheEurope.addTo(map);
+
+
+    // let coucheEurope = L.geoJSON(experiences, {
+    //     pointToLayer: function (feature, latlng) {
+    //         return traitementFeature(feature, latlng);
+    //     },
+    //     filter: function (feature) {
+    //         return feature.properties['zone'] === 'Europe';
+    //     }
+    // });
+    // coucheEurope.addTo(map);
     
-    let coucheAfrique = L.geoJSON(experiences, {
-        pointToLayer: function (feature, latlng) {
-            return traitementFeature(feature, latlng);
-        },
-        filter: function (feature) {
-                return feature.properties['zone'] === 'Afrique';
-        }
-    });
-    coucheAfrique.addTo(map);
+    // let coucheAfrique = L.geoJSON(experiences, {
+    //     pointToLayer: function (feature, latlng) {
+    //         return traitementFeature(feature, latlng);
+    //     },
+    //     filter: function (feature) {
+    //         return feature.properties['zone'] === 'Afrique';
+    //     }
+    // });
+    // coucheAfrique.addTo(map);
 	
-    let overlayMaps = {
-        '<span class="coucheLeafLet">Europe</span>': coucheEurope,
-        '<span class="coucheLeafLet">Afrique</span>': coucheAfrique,
-    };
-
-
-    let layerControl = L.control.layers(null, overlayMaps, {collapsed: false, position: 'topRight'}).addTo(map);
-
-// fin dom onload
-}
-
-
-
-
-
-
-/* /////////////////////////////////// */
-/* /////// Part of Motivation //////// */
-/* /////////////////////////////////// */
-
-
-// Handling click events to open PDF documents
-const openPdfBtn1 = document.getElementById('openPdfBtn1');
-const openPdfBtn2 = document.getElementById('openPdfBtn2');
-
-openPdfBtn1.addEventListener('click', function() {
-    // Define the URL of the first PDF document
-    const pdfURL1 = 'asset/images/pdf/recommandation_cogether.pdf';
-    // Open the first PDF document in a new tab/window
-    window.open(pdfURL1, '_blank');
-});
-
-openPdfBtn2.addEventListener('click', function() {
-    // Define the URL of the second PDF document
-    const pdfURL2 = 'asset/images/pdf/recommandation_ jpfa.pdf';
-    // Open the second PDF document in a new tab/window
-    window.open(pdfURL2, '_blank');
-});
-
-
-
-/* /////////////////////////// */
-/* ///// Button scroll up //// */
-/* /////////////////////////// */
-
-
-//Get the button
-let mybutton = document.getElementById("myBtn");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-    } else {
-        mybutton.style.display = "none";
-    }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
+    // let coucheAsie = L.geoJSON(experiences, {
+    //     pointToLayer: function (feature, latlng) {
+    //         return traitementFeature(feature, latlng);
+    //     },
+    //     filter: function (feature) {
+    //         return feature.properties['zone'] === 'Asie';
+    //     }
+    // });
+    // coucheAsie.addTo(map);
+	
+    // let coucheOceanie = L.geoJSON(experiences, {
+    //     pointToLayer: function (feature, latlng) {
+    //         return traitementFeature(feature, latlng);
+    //     },
+    //     filter: function (feature) {
+    //             return feature.properties['zone'] === 'Oceanie';
+    //     }
+    // });
+    // coucheOceanie.addTo(map);
+	
+    // let overlayMaps = {
+    //     '<span class="coucheLeafLet">Europe</span>': coucheEurope,
+    //     '<span class="coucheLeafLet">Afrique</span>': coucheAfrique,
+    //     '<span class="coucheLeafLet">Ase</span>': coucheAsie,
+    //     '<span class="coucheLeafLet">Océanie</span>': coucheOceanie,
+    // };
 
 
 
