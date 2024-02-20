@@ -64,7 +64,7 @@
 }
 
 .project-content .common-btn {
-    font-size: 1rem;
+    font-size: 0.7rem;
 }
 
 .project-content .common-btn img {
@@ -83,15 +83,16 @@
     }
 
     .project-box {
-            display: flex;
-    justify-content: center;
-    align-items: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .project-content .common-btn {
-
-        font-size: 0.9rem;
-        padding: 4px;
+        font-size: 0.7rem;
+        padding: 2px;
     }
     
 }

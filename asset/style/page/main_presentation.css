@@ -59,17 +59,24 @@
     color: var(--color-1);
 } 
 
+#headingText {  
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+}
+
 .presentation-text {
-    margin: 20px 0 0 20px;
+    margin: 0 0 0 20px;
     padding: 1rem 0 0 1rem;
     position: absolute;
     top: 0;
     z-index: 1;
     max-width: 100%;
     color: var(--white);
+    background-color: rgba(35, 35, 35, 0.5);
 }
 
 .presentation-text h1 {
+    margin: 1rem;
     padding: 1rem 0 1rem;
     font-size: 5rem;
     line-height: 1.1;
@@ -92,8 +99,15 @@
     margin-bottom: 2rem;
     font-size: 1.5rem;
     font-style: italic;
-    font-weight: 400;
-    line-height: 2rem;
+    line-height: 3rem;
+}
+
+.icon-presentation i{
+    margin-bottom: 3rem;
+    padding: 0.2rem;
+    font-size: 1rem;
+    color: var(--primary);
+
 }
 
 
