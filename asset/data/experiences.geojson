@@ -5,6 +5,25 @@
 			"type": "Feature", 
 			"geometry": {
                 "type": "Point", 
+                "coordinates": [4.747607, 45.781202]
+            }, 
+			"properties": {
+                "nom": "42 Lyon",
+                "date": "sept-oct 2024",
+                "lieu": "Charbonnières-les-Bains",
+                "type_id": "developpeur",
+                "type_nom": "Développeur informatique",
+                "zone": "Europe",
+                "activites": [
+                    "Prog algorithme<br>",
+                    "Shell Unix & C"
+                ]
+            }
+		},
+		{
+			"type": "Feature", 
+			"geometry": {
+                "type": "Point", 
                 "coordinates": [4.8331, 45.7381]
             }, 
 			"properties": {

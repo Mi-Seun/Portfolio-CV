@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         menuCheckbox.checked = !menuCheckbox.checked; // Inversion de l'état de la case à cocher
         menu.classList.toggle('menu-open'); // Basculement de la classe pour ouvrir ou fermer le menu
         
-        // Changement de l'icône du hamburger à l'icône de fermeture
+        // Changement de l'icône du burger à l'icône de fermeture
         if (menuCheckbox.checked) {
             menuIcon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
         } else {
@@ -24,16 +24,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
         console.log(menu.classList);
     });
-});
 
-// Gestion de l'événement de clic sur les liens de navigation pour un défilement fluide
-document.querySelectorAll('.nav a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault(); // Empêche le comportement par défaut
-        const targetSection = document.querySelector(this.getAttribute('href')); // Sélection de la section cible
-        targetSection.scrollIntoView({ behavior: 'smooth' }); // Défilement fluide vers la section cible
+    // Gestion de l'événement de clic sur les liens de navigation pour un défilement fluide
+    document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+
+            // Si le lien commence par '#' (indiquant une ancre interne), empêcher la redirection
+            if (href.startsWith('#')) {
+                e.preventDefault(); // Empêche le comportement par défaut uniquement pour les sections internes
+                const targetSection = document.querySelector(href); // Sélection de la section cible
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' }); // Défilement fluide vers la section cible
+                }
+            }
+        });
     });
 });
+
 
 
 /* ///////////////////////////////////////////// */
@@ -68,9 +76,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.onload = async function funLoad() {
 
+//     const map = new maplibregl.Map({
+//     container: 'map',
+//     style: 'https://<url_vers_votre_style_de_carte>',
+//     center: [longitude, latitude], 
+//     zoom: 1
+// });
+
+
     // Création d'une nouvelle carte Leaflet : https://leafletjs.com/examples/quick-start/
     let map = L.map('map', {
-        center: [35.508378, 69.70685], // Coordonnées pour Lyon [lat, long]
+        center: [34.508378, 69.70685], // Coordonnées pour Lyon [lat, long]
         zoom: 1
     });
 
@@ -254,12 +270,6 @@ function scrollFunction() {
 }
 
 function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+	document.body.scrollTop = 0; // Safari
+	document.documentElement.scrollTop = 0; // Chrome, Firefox, IE, Opera
 }
-
-
-
-
-
-
