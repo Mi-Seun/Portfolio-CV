@@ -246,7 +246,7 @@ openPdfBtn1.addEventListener('click', function() {
 });
 
 openPdfBtn2.addEventListener('click', function() {
-    const pdfURL2 = 'asset/images/pdf/recommandation_ jpfa.pdf';
+    const pdfURL2 = 'asset/images/pdf/recommandation_jpfa.pdf';
     window.open(pdfURL2, '_blank');
 });
 

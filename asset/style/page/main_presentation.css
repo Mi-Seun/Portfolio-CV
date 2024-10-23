@@ -117,7 +117,7 @@
     #root {
         opacity: none !important;
     }
-
+	
     .presentation-box {
         padding: 2rem 0 0;
     }
@@ -159,8 +159,8 @@
         line-height: 2rem;
     }
     .presentation-text p {
-        font-size: 1.2rem;
-        line-height: 2rem;
+		font-size: 14px;
+		line-height: 24px;
     }
 
     .icon-presentation i{

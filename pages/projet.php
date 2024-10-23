@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi-Sun's CV</title>
+    <title>Projects</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">    
     <link rel="stylesheet" href="../asset/style/style.css">
@@ -17,11 +17,15 @@
 	?>
 
 	
-    <div class="m-5">
-        <h2>
-            <i class="fa-solid fa-person-digging"></i> La page en cours !
-        </h2>
+	<div class="projet-container">
+		<section id="skills-section" class="skill-section white-bg position-relative overflow-hidden">
+		<h2 class="title text-center">
+			<i class="fa-solid fa-person-digging m-5"></i>
+		</h2>
+			<h2 class="title text-center"> page en cours !</h2>
+		</section>
     </div>
+
 	
 
 		<!-- Scroll up -->

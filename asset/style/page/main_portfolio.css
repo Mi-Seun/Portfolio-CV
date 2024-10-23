@@ -2,11 +2,11 @@
 /* /////// Portfolio ///////// */
 /* /////////////////////////// */
 
-.projects-section {
+.portfolio-section {
     padding: 16rem 0 0 0;
 }
 
-.project-box {
+.portfolio-box {
 	width: 100%;
 	height: 234px;
 	position: relative;
@@ -15,7 +15,7 @@
     align-items: center;
 }
 
-.project-box img {
+.portfolio-box img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -25,36 +25,36 @@
 	left: 0;
 }
 
-.project-box.big {
+.portfolio-box.big {
     height: 100%;
 }
 
-.project-content {
+.portfolio-content {
     padding: 40px;
     position: relative;
     z-index: 1;
 }
 
-.project-content::before,
-.project-content::after {
+.portfolio-content::before,
+.portfolio-content::after {
     position: absolute;
     content: "";
     height: 2px;
     width: 140px;
 }
 
-.project-content::after {
+.portfolio-content::after {
     right: 14px;
     bottom: 3px;
 }
 
-.project-content::before {
+.portfolio-content::before {
     top: 14px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.project-content .bg-img {
+.portfolio-content .bg-img {
     position: absolute;
     top: 10px;
     left: 0;
@@ -63,26 +63,26 @@
     z-index: -1;
 }
 
-.project-content .common-btn {
+.portfolio-content .common-btn {
     font-size: 0.7rem;
 }
 
-.project-content .common-btn img {
+.portfolio-content .common-btn img {
     position: relative;
 }
 
 /* Responsive Styles for Mobile Devices */
 @media only screen and (max-width: 768px) {
     
-    .projects-section {
+    .portfolio-section {
         padding: 8rem 0 0 0; 
     }
 
-    .projects-section h2{
+    .portfolio-section h2{
         font-size: 2.3rem;
     }
 
-    .project-box {
+    .portfolio-box {
         margin: 0;
         padding: 0;
         display: flex;
@@ -90,12 +90,9 @@
         align-items: center;
     }
 
-    .project-content .common-btn {
+    .portfolio-content .common-btn {
         font-size: 0.7rem;
         padding: 2px;
     }
     
 }
-
-
-

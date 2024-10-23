@@ -133,7 +133,7 @@
 								Toujours en quête de nouvelles opportunités 
 								pour développer mes compétences et <strong>répondre aux besoins des utilisateurs</strong>.
 							</p>
-							<a href="#projects-section" class="common-btn">Découvrez mon travail</a>
+							<a href="#portfolio-section" class="common-btn">Découvrez mon travail</a>
 						</div>
 						
 				</div>
@@ -302,40 +302,40 @@
 
 
 		<!-- Portfolio Start -->
-		<section id="projects-section" class="projects-section white-bg position-relative overflow-hidden">
+		<section id="portfolio-section" class="portfolio-section white-bg position-relative overflow-hidden">
 			<h2 class="title text-center">Portfolio</h2>
 			<div class="container">
 				<div class="row align-items-stretch overflow-hidden mb-5 gy-1 gy-md-0 gx-1 gx-md-3 gx-lg-4">
 				<div class="col-md-9">
 					<div class="row g-1 g-md-3 g-lg-4 overflow-hidden">
 						<div class="col-8">
-							<div class="project-box project-content pbox-left">
-							<img src="asset/images/metro/metro.jpeg" class="img-fluid" alt="Project">
+							<div class="portfolio-box portfolio-content pbox-left">
+							<img src="asset/images/metro/metro.jpeg" class="img-fluid" alt="portfolio">
 							<a href="https://github.com/Mi-Seun" class="common-btn " target="_blank" rel="noopener">
 								<i class="fa-brands fa-github"></i>gitHub</a>
 							</div>
 						</div>
 						<div class="col-4">
-							<div class="project-box project-content pbox-right">
-								<img src="asset/images/metro/metro7.jpeg" class="img-fluid" alt="Project">
+							<div class="portfolio-box portfolio-content pbox-right">
+								<img src="asset/images/metro/metro7.jpeg" class="img-fluid" alt="portfolio">
 								<a href="https://www.behance.net/mi-sunjang" class="common-btn " target="_blank" rel="noopener">
 									<i class="fa-brands fa-square-behance"></i>behance</a>
 									</div>
 						</div>
 						<div class="col-4">
-							<div class="project-box project-content pbox-left">
-							<img src="asset/images/metro/metro5.jpeg" class="img-fluid" alt="Project">
+							<div class="portfolio-box portfolio-content pbox-left">
+							<img src="asset/images/metro/metro5.jpeg" class="img-fluid" alt="portfolio">
 							<a href="https://www.linkedin.com/in/misun-jang/" class="common-btn" target="_blank" rel="noopener">
 								<i class="fa-brands fa-linkedin"></i>LinkedIn</a>
 		
 						</div>
 						</div>
 						<div class="col-8 overflow-hidden">
-							<div class="project-box project-content">
-							<img src="asset/images/metro/bus.jpeg" class="img-fluid bg-img" alt="Project">
+							<div class="portfolio-box portfolio-content">
+							<img src="asset/images/metro/bus.jpeg" class="img-fluid bg-img" alt="portfolio">
 								<div class="row align-items-center h-100">
 									<div class="col-10 col-md-8 col-xxl-7 ms-auto">
-									<a href="pages/project.html" class="common-btn" target="_blank" rel="noopener">
+									<a href="pages/projet.php" class="common-btn" target="_blank" rel="noopener">
 										projets</a>
 									</div>
 								</div>
@@ -344,8 +344,8 @@
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="project-box project-content big pbox-right">
-						<img src="asset/images/metro/metro4.jpeg" class="img-fluid" alt="Project">
+					<div class="portfolio-box portfolio-content big pbox-right">
+						<img src="asset/images/metro/metro4.jpeg" class="img-fluid" alt="portfolio">
 					</div>
 				</div>
 				</div>
@@ -519,10 +519,10 @@
 									<a class="nav-contact-link" href="mailto:misun.jang@free.fr">
 									<i class="fa-regular fa-envelope"></i>  misun.jang<i class="fa-solid fa-at"></i>free.fr</a>
 								</li>
-								<li class="nav-contact-item">
+								<!-- <li class="nav-contact-item">
 									<img src="" class="img-fluid" alt="">
 									<a class="nav-contact-link" href="tel:33782130660">
-										<!-- <i class="fa-solid fa-phone"></i>  07 82 13 06 60</a> -->
+										<i class="fa-solid fa-phone"></i>  07 82 13 06 60</a> -->
 								</li>
 								<li class="nav-contact-item">
 									<img src="" class="img-fluid" alt="">
@@ -541,7 +541,9 @@
 									<p> HTML, <a href="pages/codes.php">JavaScript</a>, <a href="pages/codes.php">PHP</a>, <a href="pages/codes.php">GeoJson</a>, npm, webpack, CSS, Bootstrap, SVG</p>
 								</div>
 								<div class="title-outil">Design : 
-									<p>Illustrator (Logo, Pointeurs de map, Icônes)</p>
+									<p>Illustrator (<a href="asset/images/logo/mon_logo_metro.png">Logo</a>, 
+									<a href="asset/images/icon/all_pointeurs.png">Pointeurs de map</a>, 
+									<a href="asset/images/icon/icon_france.png">Icônes</a>)</p>
 								</div>
 								<div class="title-outil">Bibliothèque : 
 									<p><a href="https://leafletjs.com" class="texte-outil">Leaflet</a></p>
